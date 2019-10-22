@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel = "stylesheet" type="text/css" href="clock.css">
+    <script>
+      async function Showtime() {
+        var clock = new Date();
+        var hour = clock.getHours();
+        var minute = clock.getMinutes();
+        var seconds = clock.getSeconds();
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+        if (minute < 10) {
+          minute = "0" + minute;
+        }
+
+        if (hour < 10) {
+          hour = "0" + hour;
+        }
+
+        var repeat = setTimeout(Showtime, 1000);
+
+        document.getElementById("txt").innerHTML =
+          hour + ":" + minute + ":" + seconds;
+      }
+    </script>
+  </head>
+
+  <body onload="Showtime()">
+    <div id="heading"><h1>The Time is</h1></div>
+    <div id="txt"></div>
+  </body>
+</html>
